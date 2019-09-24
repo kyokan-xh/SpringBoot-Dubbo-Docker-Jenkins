@@ -6,6 +6,7 @@ package com.gaoxi.redis.service;
  * @description
  */
 import java.io.Serializable;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -70,18 +71,43 @@ public class RedisServiceImpl implements RedisService {
         return redisTemplate.hasKey(key);
     }
 
+    @Override
+    public Serializable get(String key) {
+        return null;
+    }
+
     /**
      * 读取缓存
      *
      * @param key
      * @return
      */
-    @Override
-    public Object get(final String key) {
+//    @Override
+    public Object get1(final String key) {
         Object result = null;
         ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
         result = operations.get(key);
         return result;
+    }
+
+    @Override
+    public boolean set(String key, Serializable value) {
+        return false;
+    }
+
+    @Override
+    public boolean set(String key, Serializable value, Long expireTime) {
+        return false;
+    }
+
+    @Override
+    public <K, HK, HV> boolean setMap(K key, Map<HK, HV> map, Long expireTime) {
+        return false;
+    }
+
+    @Override
+    public <K, HK, HV> Map<HK, HV> getMap(K key) {
+        return null;
     }
 
     /**
@@ -91,7 +117,7 @@ public class RedisServiceImpl implements RedisService {
      * @param value
      * @return
      */
-    @Override
+//    @Override
     public boolean set(final String key, Object value) {
         boolean result = false;
         try {
@@ -111,7 +137,7 @@ public class RedisServiceImpl implements RedisService {
      * @param value
      * @return
      */
-    @Override
+//    @Override
     public boolean set(final String key, Object value, Long expireTime) {
         boolean result = false;
         try {
