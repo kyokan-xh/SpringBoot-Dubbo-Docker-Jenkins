@@ -93,19 +93,40 @@ public class UserServiceImpl implements UserService {
     public UserEntity register(RegisterReq registerReq) {
 
         // 校验参数
-        checkParam(registerReq);
+//        checkParam(registerReq);
 
         // 构造UserEntity
-        UserEntity userEntity = buildUserEntity(registerReq);
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername("userkkk");
+        userEntity.setUsername("1223445553123");
+        userEntity.setUsername("xxxxwwwww@qq.com");
+        System.out.println(userEntity.toString());
 
         // TODO 增加判断： 用户名、手机、邮箱 均不能重复
 
         // 用户信息入库
-        userDAO.createUser(userEntity);
+//        userDAO.createUser(userEntity);
 
         // 入库成功
         return userEntity;
     }
+//    @Override
+//    public UserEntity register(RegisterReq registerReq) {
+//
+//        // 校验参数
+//        checkParam(registerReq);
+//
+//        // 构造UserEntity
+//        UserEntity userEntity = buildUserEntity(registerReq);
+//
+//        // TODO 增加判断： 用户名、手机、邮箱 均不能重复
+//
+//        // 用户信息入库
+//        userDAO.createUser(userEntity);
+//
+//        // 入库成功
+//        return userEntity;
+//    }
 
     @Override
     public void batchUpdateUserState(BatchReq<UserStateReq> userStateReqs) {
