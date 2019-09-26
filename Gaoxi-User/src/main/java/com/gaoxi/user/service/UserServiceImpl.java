@@ -29,7 +29,7 @@ import java.util.Map;
  * @description 用户相关操作
  */
 @Service(version = "1.0.0")
-@org.springframework.stereotype.Service
+@org.springframework.stereotype.Service("userService")
 public class UserServiceImpl implements UserService {
 
     @Autowired
