@@ -38,8 +38,8 @@ public class UserControllerImpl implements UserController {
     @Reference(version = "1.0.0")
     private UserService userService;
 
-    @Reference(version = "1.0.0")
-    private RedisService redisService;
+//    @Reference(version = "1.0.0")
+//    private RedisService redisService;
 
     /** Session有效时间 */
     @Value("${session.expireTime}")
@@ -95,8 +95,8 @@ public class UserControllerImpl implements UserController {
         UserEntity userEntity = userService.register(registerReq);
 
         // 登录成功
-        doLoginSuccess(userEntity, httpRsp);
-        return newSuccessResult();
+//        doLoginSuccess(userEntity, httpRsp);
+        return newSuccessResult(userEntity.getId());
     }
 
     @Override

@@ -100,9 +100,10 @@ public class UserServiceImpl implements UserService {
 
         // 构造UserEntity
         UserEntity userEntity = new UserEntity();
+        userEntity.setId(Math.random() + "");
         userEntity.setUsername("userkkk");
-        userEntity.setUsername("1223445553123");
-        userEntity.setUsername("xxxxwwwww@qq.com");
+        userEntity.setPhone("1223445553123");
+        userEntity.setMail("xxxxwwwww@qq.com");
         System.out.println(userEntity.toString());
 
         // TODO 增加判断： 用户名、手机、邮箱 均不能重复
