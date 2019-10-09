@@ -29,13 +29,15 @@ import java.util.Map;
  * @description 用户相关操作
  */
 @Service(version = "1.0.0")
-@org.springframework.stereotype.Service("userService")
+@org.springframework.stereotype.Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDAO userDAO;
 
-    /** 用户表主键的前缀 */
+    /**
+     * 用户表主键的前缀
+     */
     private static final String USER_KEY_PREFIX = "USER";
 
     @Override
@@ -61,6 +63,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 构造用户查询对象
+     *
      * @param loginReq 登录请求
      * @return 用户查询请求
      */
@@ -269,7 +272,7 @@ public class UserServiceImpl implements UserService {
 
     private void checkParam(LocationCreateReq locationCreateReq, String userId) {
         // 参数不能为空
-        if (locationCreateReq==null) {
+        if (locationCreateReq == null) {
             throw new CommonBizException(ExpCodeEnum.PARAM_NULL);
         }
 
@@ -308,8 +311,9 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 构建用于新增location的LocationEntity
+     *
      * @param locationCreateReq 收货地址创建请求
-     * @param userId 用户ID
+     * @param userId            用户ID
      * @return
      */
     private LocationEntity buildLocationEntity(LocationCreateReq locationCreateReq, String userId) {
@@ -331,7 +335,7 @@ public class UserServiceImpl implements UserService {
 
     private void checkParam(RolePermissionReq rolePermissionReq) {
         // 参数不能为空
-        if (rolePermissionReq==null) {
+        if (rolePermissionReq == null) {
             throw new CommonBizException(ExpCodeEnum.PARAM_NULL);
         }
 
@@ -349,7 +353,7 @@ public class UserServiceImpl implements UserService {
 
     private void checkParam(RoleMenuReq roleMenuReq) {
         // 参数不能为空
-        if (roleMenuReq==null) {
+        if (roleMenuReq == null) {
             throw new CommonBizException(ExpCodeEnum.PARAM_NULL);
         }
 
@@ -373,6 +377,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 构造UserEntity对象
+     *
      * @param adminCreateReq 创建管理员的请求
      * @return UserEntity对象
      */
@@ -397,13 +402,13 @@ public class UserServiceImpl implements UserService {
     private void checkParam(AdminCreateReq adminCreateReq) {
         // 密码不能为空
         if (StringUtils.isEmpty(adminCreateReq.getPassword())) {
-           throw new CommonBizException(ExpCodeEnum.PASSWD_NULL);
+            throw new CommonBizException(ExpCodeEnum.PASSWD_NULL);
         }
 
         // 用户名不能为空
         // TODO 用户名不能重复
         if (StringUtils.isEmpty(adminCreateReq.getUsername())) {
-           throw new CommonBizException(ExpCodeEnum.USERNAME_NULL);
+            throw new CommonBizException(ExpCodeEnum.USERNAME_NULL);
         }
 
         // 电话不能为空
@@ -422,6 +427,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 根据userState将userId分组
+     *
      * @param userStateReqs 修改用户状态的请求
      * @return 分组后结果（key：用户状态、value：该状态下对应的userid列表）
      */
@@ -457,6 +463,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 构造UserEntity
+     *
      * @param registerReq 用户注册请求
      * @return UserEntity对象
      */
@@ -483,6 +490,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 生成User主键('USER'+UUID)
+     *
      * @return 主键
      */
     private String generateKey() {
@@ -491,6 +499,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 校验参数
+     *
      * @param registerReq 注册请求
      */
     private void checkParam(RegisterReq registerReq) {
@@ -531,6 +540,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 参数校验
+     *
      * @param loginReq
      */
     private void checkParam(LoginReq loginReq) {
